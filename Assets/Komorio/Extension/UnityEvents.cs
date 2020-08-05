@@ -10,19 +10,19 @@ using UnityEngine;
 /// </summary>
 namespace EventTools.Event{
     [Serializable]
-    public class Event : UnityEvent { }
+    public class UniEvent : UnityEvent { }
 
     [Serializable]
-    public class Event<T> : UnityEvent<T> { }
+    public class UniEvent<T> : UnityEvent<T> { }
 
     [Serializable]
-    public class Event<T1, T2> : UnityEvent<T1, T2> { }
+    public class UniEvent<T1, T2> : UnityEvent<T1, T2> { }
 
     [Serializable]
-    public class Event<T1, T2, T3> : UnityEvent<T1, T2, T3> { }
+    public class UniEvent<T1, T2, T3> : UnityEvent<T1, T2, T3> { }
 
     [Serializable]
-    public class Event<T1, T2, T3, T4> : UnityEvent<T1, T2, T3, T4> { }
+    public class UniEvent<T1, T2, T3, T4> : UnityEvent<T1, T2, T3, T4> { }
 }
 
 /// <summary>
