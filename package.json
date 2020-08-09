@@ -1,7 +1,7 @@
 {
-    "name": "com.emptycatch.unitylibarary",
-    "displayName": "Unity Libarary",
+    "name": "com.emptycatch.unitylibrary",
+    "displayName": "Unity Library",
     "version": "1.0.0",
     "unity": "2018.3",
-    "description": "Unity libarary"
+    "description": "Unity Library"
 }
