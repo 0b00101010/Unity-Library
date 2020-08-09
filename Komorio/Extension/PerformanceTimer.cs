@@ -21,5 +21,7 @@ public static class PerformanceTimer{
 
         stopwatchDictionary[behaviour].Stop();
         $"{stopwatchDictionary[behaviour].ElapsedMilliseconds / 1000.0f}ms".Log();
+        
+        stopwatchDictionary.Remove(behaviour);
     }
 }
