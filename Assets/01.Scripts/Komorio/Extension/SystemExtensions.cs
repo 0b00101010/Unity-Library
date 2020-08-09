@@ -9,6 +9,4 @@ public static class SystemExtensions{
         Debug.Log(value.ToString());
         #endif
     }
-
-    
 }
