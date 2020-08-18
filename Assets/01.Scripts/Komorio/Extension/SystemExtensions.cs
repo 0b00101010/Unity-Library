@@ -9,4 +9,15 @@ public static class SystemExtensions{
         Debug.Log(value.ToString());
         #endif
     }
+
+    /// <summary>
+    /// It automatically stops when you convert the scene.
+    /// </summary>
+    public static IEnumerator Start(this IEnumerator coroutine, MonoBehaviour behaviour){
+        return behaviour.StartCoroutine(coroutine);
+    }
+
+    public static void Stop(this IEnumerator coroutine, MonoBehaviour behaviour){
+        behaviour.StopCoroutine(coroutine);
+    }
 }
