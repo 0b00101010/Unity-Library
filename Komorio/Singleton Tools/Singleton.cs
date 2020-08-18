@@ -23,4 +23,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         }
     }
 
+    public virtual void OnDestroy(){
+        _instance = null;
+    }
 }
