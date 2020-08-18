@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -14,7 +16,8 @@ public static class SystemExtensions{
     /// It automatically stops when you convert the scene.
     /// </summary>
     public static IEnumerator Start(this IEnumerator coroutine, MonoBehaviour behaviour){
-        return behaviour.StartCoroutine(coroutine);
+        behaviour.StartCoroutine(coroutine);
+        return coroutine;
     }
 
     public static void Stop(this IEnumerator coroutine, MonoBehaviour behaviour){
