@@ -18,8 +18,7 @@ public class DontDestroySingletonObject<T> :MonoBehaviour where T : MonoBehaviou
                     var prefabs = Resources.Load<T>($"Prefabs/{typeof(T).ToString()}");
                     
                     if (prefabs != null) {
-                        obj = prefabs;
-                        Instantiate(prefabs.gameObject, Vector2.zero, Quaternion.identity);
+                        obj = Instantiate(prefabs).gameObject.GetComponentSafe<T>();
                     }
                     else {
                         obj = new GameObject(typeof(T).ToString()).AddComponent<T>();
@@ -39,7 +38,7 @@ public class DontDestroySingletonObject<T> :MonoBehaviour where T : MonoBehaviou
                 }
 
                 instance = obj;
-                DontDestroyOnLoad(instance.gameObject);
+                DontDestroyOnLoad(obj.gameObject);
             }
 
             return instance;
