@@ -38,9 +38,8 @@ public class SingletonObject<T> : MonoBehaviour where T : MonoBehaviour {
                 }
 
                 SceneManager.activeSceneChanged += (beforeScene, afterScene) => {
-                    if (beforeScene != afterScene) {
+                    if (beforeScene != afterScene && afterScene.name != "DontDestroyOnLoad") {
                         instance = null;
-                        "Destroy Instance".Log();
                     }
                 };
                 
