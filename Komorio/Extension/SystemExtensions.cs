@@ -23,4 +23,25 @@ public static class SystemExtensions{
     public static void Stop(this IEnumerator coroutine, MonoBehaviour behaviour){
         behaviour.StopCoroutine(coroutine);
     }
+
+    /// <summary>
+    /// If there is no return value, it will be returned after adding it.
+    /// </summary>>
+    public static T GetComponentSafe<T>(GameObject gameObject) where T : MonoBehaviour {
+        var component = gameObject.GetComponent<T>(); 
+        if (component == null) {
+            component = gameObject.AddComponent<T>();
+        }
+
+        return component;
+    }    
+    
+    public static T GetComponentSafe<T>(Transform transform) where T : MonoBehaviour {
+        var component = transform.GetComponent<T>(); 
+        if (component == null) {
+            component = transform.gameObject.AddComponent<T>();
+        }
+
+        return component;
+    }
 }
