@@ -1,7 +1,0 @@
-{
-    "name": "com.emptycatch.unitylibrary",
-    "displayName": "Unity Library",
-    "version": "1.2.0",
-    "unity": "2018.3",
-    "description": "Unity-Library. It provides some convenient functions for development."
-}
