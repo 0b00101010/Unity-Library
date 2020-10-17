@@ -27,7 +27,7 @@ public static class SystemExtensions{
     /// <summary>
     /// If there is no return value, it will be returned after adding it.
     /// </summary>>
-    public static T GetComponentSafe<T>(GameObject gameObject) where T : MonoBehaviour {
+    public static T GetComponentSafe<T>(this GameObject gameObject) where T : MonoBehaviour {
         var component = gameObject.GetComponent<T>(); 
         if (component == null) {
             component = gameObject.AddComponent<T>();
@@ -36,7 +36,7 @@ public static class SystemExtensions{
         return component;
     }    
     
-    public static T GetComponentSafe<T>(Transform transform) where T : MonoBehaviour {
+    public static T GetComponentSafe<T>(this Transform transform) where T : MonoBehaviour {
         var component = transform.GetComponent<T>(); 
         if (component == null) {
             component = transform.gameObject.AddComponent<T>();
