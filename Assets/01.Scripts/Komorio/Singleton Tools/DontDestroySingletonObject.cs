@@ -12,7 +12,7 @@ public class DontDestroySingletonObject<T> :MonoBehaviour where T : MonoBehaviou
     public static T Instance {
         get {
             if (instance == null) {
-                var obj = GameObject.FindObjectOfType<T>();
+                var obj = GameObject.FindObjectOfType<T>(true);
 
                 if (obj == null) {
                     var prefabs = Resources.Load<T>($"Prefabs/{typeof(T).ToString()}");
