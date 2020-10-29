@@ -44,4 +44,19 @@ public static class SystemExtensions{
 
         return component;
     }
+
+    public static T GetRandomItem<T>(this List<T> baseList) {
+        return baseList[Random.Range(0, baseList.Count)];
+    }
+    
+    public static void Shuffle<T>(this List<T> baseList) {
+        var copyList = baseList.ConvertAll((item) => item);
+        baseList.Clear();
+        
+        do {
+            var copyItem = copyList.GetRandomItem();
+            baseList.Add(copyItem);
+            copyList.Remove(copyItem);
+        } while (copyList.Count > 0);
+    }
 }
