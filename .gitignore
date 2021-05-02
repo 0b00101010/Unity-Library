@@ -60,3 +60,9 @@ crashlytics-build.properties
 
 
 .idea/
+
+Resources/
+
+Resources.meta
+
+.DS_Store
