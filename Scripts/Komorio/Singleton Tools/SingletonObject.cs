@@ -1,8 +1,12 @@
 ﻿using System;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /// <summary>
 /// Convert this class to Singleton format.
 /// </summary>
@@ -20,6 +24,7 @@ public class SingletonObject<T> : MonoBehaviour where T : MonoBehaviour {
                         obj = prefabs;
                         Instantiate(prefabs.gameObject, Vector2.zero, Quaternion.identity);
                     }
+                    #if UNITY_EDITOR
                     else {
                         obj = new GameObject(typeof(T).ToString()).AddComponent<T>();
 
@@ -35,6 +40,7 @@ public class SingletonObject<T> : MonoBehaviour where T : MonoBehaviour {
                         
                         PrefabUtility.SaveAsPrefabAssetAndConnect(obj.gameObject, prefabPath, InteractionMode.UserAction);
                     }
+                    #endif
                 }
 
                 SceneManager.activeSceneChanged += (beforeScene, afterScene) => {

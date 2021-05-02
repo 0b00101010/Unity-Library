@@ -2,7 +2,11 @@
 using System.Collections;
 using System.IO;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 /// <summary>
 /// Convert this class to Singleton format.
 /// And keep the object from being destroyed.
@@ -20,6 +24,7 @@ public class DontDestroySingletonObject<T> :MonoBehaviour where T : MonoBehaviou
                     if (prefabs != null) {
                         obj = Instantiate(prefabs).gameObject.GetComponentSafe<T>();
                     }
+                    #if UNITY_EDITOR
                     else {
                         obj = new GameObject(typeof(T).ToString()).AddComponent<T>();
 
@@ -35,6 +40,7 @@ public class DontDestroySingletonObject<T> :MonoBehaviour where T : MonoBehaviou
 
                         PrefabUtility.SaveAsPrefabAssetAndConnect(obj.gameObject, prefabPath, InteractionMode.UserAction);
                     }
+                    #endif
                 }
 
                 instance = obj;
